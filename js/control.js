@@ -33,6 +33,13 @@ doorRightOffsetInput.onchange = function(event) {
   updateScene();
 };
 
+var radiusInput = document.querySelector('#radius')
+radiusInput.value = STEP_RADIUS;
+radiusInput.onchange = function(event) {
+  STEP_RADIUS = event.target.value;
+  updateScene();
+};
+
 var wallGapInput = document.querySelector('#wallGap')
 wallGapInput.value = WALL_GAP;
 wallGapInput.onchange = function(event) {

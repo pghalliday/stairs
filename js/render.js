@@ -69,7 +69,7 @@ function addDoorway(group) {
   geometry.vertices.push(new THREE.Vector3(0, 0, 0));
   var line = new THREE.Line(geometry, material);
   line.translateX((FLOOR_SQUARE / 2) - DOOR_WIDTH - DOOR_RIGHT_OFFSET);
-  line.translateZ((FLOOR_SQUARE / 2) - (STEP_RADIUS * 2) + (WALL_GAP * 2));
+  line.translateZ(- ((FLOOR_SQUARE / 2) - (STEP_RADIUS * 2) - (WALL_GAP * 2)));
   line.translateY(TOP_FLOOR_HEIGHT);
   group.add(line);
 }
