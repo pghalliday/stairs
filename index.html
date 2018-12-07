@@ -9,9 +9,31 @@
 		</style>
 	</head>
 	<body>
-		<script src="js/three.js"></script>
-		<script src="js/OrbitControls.js"></script>
-		<script src="js/slice.js"></script>
-		<script src="js/render.js"></script>
+    <div>
+
+      <label for "stepAngle">Step angle</label>
+      <input type="number" id="stepAngle" min="1" max="30">
+
+      <label for "bordesAngle">Bordes angle</label>
+      <input type="number" id="bordesAngle" min="1" max="180">
+
+      <label for "stairsOffsetAngle">Stairs offset angle</label>
+      <input type="number" id="stairsOffsetAngle" min="1" max="90">
+
+      <label for "doorWidth">Door width</label>
+      <input type="number" id="doorWidth" min="1" max="1000">
+
+      <label for "doorRightOffset">Door offset right</label>
+      <input type="number" id="doorRightOffset" min="1" max="1000">
+
+      <label for "wallGap">Wall gap</label>
+      <input type="number" id="wallGap" min="1" max="200">
+
+    </div>
 	</body>
+  <script src="js/three.js"></script>
+  <script src="js/OrbitControls.js"></script>
+  <script src="js/slice.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/control.js"></script>
 </html>

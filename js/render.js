@@ -27,6 +27,10 @@ function toRadians(degrees) {
   return degrees * (Math.PI / 180);
 }
 
+function toDegrees(radians) {
+  return radians / (Math.PI / 180);
+}
+
 function addDoorStep(stairHeight, group) {
   var width = STEP_RADIUS + WALL_GAP;
   var height = TOP_FLOOR_HEIGHT - stairHeight;
@@ -219,10 +223,10 @@ document.body.appendChild(renderer.domElement);
 
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000000);
 camera.position.set(4000, 4000, 4000);
-var controls = new THREE.OrbitControls(camera);
+var controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 var scene;
-function createScene() {
+function updateScene() {
   scene = new THREE.Scene();
   addLights(scene);
   var stairHeight = addStairs(STAIRS, scene);
@@ -236,6 +240,6 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-createScene();
+updateScene();
 animate();
 
