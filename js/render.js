@@ -231,7 +231,7 @@ function updateScene() {
   addLights(scene);
   var stairHeight = addStairs(STAIRS, scene);
   addStructure(stairHeight, scene);
-  controls.target = new THREE.Vector3(0, stairHeight / 2, 0);
+  controls.target = new THREE.Vector3(0, 2 * (stairHeight / 3), 0);
   controls.update();
 }
 
