@@ -5,6 +5,13 @@ stepAngleInput.onchange = function(event) {
   updateScene();
 };
 
+var stairsOffsetHeightInput = document.querySelector('#stairsOffsetHeight');
+stairsOffsetHeightInput.value = STAIRS_OFFSET_HEIGHT;
+stairsOffsetHeightInput.onchange = function(event) {
+  STAIRS_OFFSET_HEIGHT = parseFloat(event.target.value);
+  updateScene();
+};
+
 var stairsOffsetAngleInput = document.querySelector('#stairsOffsetAngle');
 stairsOffsetAngleInput.value = toDegrees(STAIRS_OFFSET_ANGLE);
 stairsOffsetAngleInput.onchange = function(event) {
@@ -19,30 +26,16 @@ bordesAngleInput.onchange = function(event) {
   updateScene();
 };
 
-var doorWidthInput = document.querySelector('#doorWidth');
-doorWidthInput.value = DOOR_WIDTH;
-doorWidthInput.onchange = function(event) {
-  DOOR_WIDTH = parseFloat(event.target.value);
+var stepHeightInput = document.querySelector('#stepHeight')
+stepHeightInput.value = STEP_HEIGHT;
+stepHeightInput.onchange = function(event) {
+  STEP_HEIGHT = parseFloat(event.target.value);
   updateScene();
 };
 
-doorRightOffsetInput = document.querySelector('#doorRightOffset');
-doorRightOffsetInput.value = DOOR_RIGHT_OFFSET;
-doorRightOffsetInput.onchange = function(event) {
-  DOOR_RIGHT_OFFSET = parseFloat(event.target.value);
-  updateScene();
-};
-
-var radiusInput = document.querySelector('#radius')
-radiusInput.value = STEP_RADIUS;
-radiusInput.onchange = function(event) {
-  STEP_RADIUS = parseFloat(event.target.value);
-  updateScene();
-};
-
-var wallGapInput = document.querySelector('#wallGap')
-wallGapInput.value = WALL_GAP;
-wallGapInput.onchange = function(event) {
-  WALL_GAP = parseFloat(event.target.value);
+var bordesHeightInput = document.querySelector('#bordesHeight')
+bordesHeightInput.value = BORDES_HEIGHT;
+bordesHeightInput.onchange = function(event) {
+  BORDES_HEIGHT = parseFloat(event.target.value);
   updateScene();
 };

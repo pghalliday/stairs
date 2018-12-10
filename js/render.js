@@ -1,7 +1,8 @@
 var STAIRS_OFFSET_HEIGHT = 10;
-var STAIRS_OFFSET_ANGLE = toRadians(0);
+var STAIRS_OFFSET_ANGLE = toRadians(25);
 var STEP_HEIGHT = 190;
-var STEP_ANGLE = toRadians(22);
+var BORDES_HEIGHT = 190;
+var STEP_ANGLE = toRadians(21.5);
 var STEP_RADIUS = 820;
 var BORDES_ANGLE = toRadians(60);
 var STAIRS = [15, 14];
@@ -123,21 +124,21 @@ function addFloor(height, group) {
   group.add(floor);
 }
 
-function addStairComponent(angle, stepOffset, bordesOffset, scene) {
+function addStairComponent(angle, componentHeight, stepOffset, bordesOffset, scene) {
   var group = new THREE.Group();
   var rotation = (stepOffset * STEP_ANGLE) + (bordesOffset * BORDES_ANGLE) + STAIRS_OFFSET_ANGLE;
-  var height = ((stepOffset + bordesOffset) * STEP_HEIGHT) + (STEP_HEIGHT / 2) + STAIRS_OFFSET_HEIGHT;
+  var height = ((stepOffset * STEP_HEIGHT) + (bordesOffset * BORDES_HEIGHT)) + (componentHeight / 2) + STAIRS_OFFSET_HEIGHT;
   var cylinder = new THREE.CylinderGeometry(
     STEP_RADIUS,
     STEP_RADIUS,
-    STEP_HEIGHT,
+    componentHeight,
     undefined,
     undefined,
     false,
     0,
     angle,
   );
-  var plane = new THREE.PlaneGeometry(STEP_RADIUS, STEP_HEIGHT);
+  var plane = new THREE.PlaneGeometry(STEP_RADIUS, componentHeight);
   var meshMaterial = new THREE.MeshStandardMaterial({
     color: BLUE,
     emissive: BLUE_DARK,
@@ -161,11 +162,11 @@ function addStairComponent(angle, stepOffset, bordesOffset, scene) {
 }
 
 function addStep(stepOffset, bordesOffset, scene) {
-  addStairComponent(STEP_ANGLE, stepOffset, bordesOffset, scene);
+  addStairComponent(STEP_ANGLE, STEP_HEIGHT, stepOffset, bordesOffset, scene);
 }
 
 function addBordes(stepOffset, bordesOffset, scene) {
-  addStairComponent(BORDES_ANGLE, stepOffset, bordesOffset, scene);
+  addStairComponent(BORDES_ANGLE, BORDES_HEIGHT, stepOffset, bordesOffset, scene);
 }
 
 function addStairs(config, scene) {
@@ -177,7 +178,7 @@ function addStairs(config, scene) {
     }
     addBordes(stepOffset, bordesOffset++, scene);
   });
-  return (stepOffset + bordesOffset) * STEP_HEIGHT;
+  return (stepOffset * STEP_HEIGHT) + (bordesOffset * BORDES_HEIGHT);
 }
 
 function addFloors(config, group) {
