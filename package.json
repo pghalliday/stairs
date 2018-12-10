@@ -1,0 +1,22 @@
+{
+  "name": "stairs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pghalliday/stairs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pghalliday/stairs/issues"
+  },
+  "homepage": "https://pghalliday.com/stairs",
+  "dependencies": {
+    "create-react-app": "^2.1.1"
+  }
+}

@@ -2,18 +2,18 @@ var STAIRS_OFFSET_HEIGHT = 10;
 var STAIRS_OFFSET_ANGLE = toRadians(0);
 var STEP_HEIGHT = 190;
 var STEP_ANGLE = toRadians(22);
-var STEP_RADIUS = 1000;
-var BORDES_ANGLE = toRadians(70);
+var STEP_RADIUS = 820;
+var BORDES_ANGLE = toRadians(60);
 var STAIRS = [15, 14];
 var FLOORS = [0, 3050, 2950];
 var FLOOR_SQUARE = 4000;
 var WALL_WIDTH = FLOOR_SQUARE;
 var TOP_FLOOR_HEIGHT = FLOORS.reduce(function(acc, height) {return acc + height;});
 var WALL_HEIGHT = TOP_FLOOR_HEIGHT + 3000;
-var WALL_GAP = 50;
+var WALL_GAP = 80;
 var DOOR_HEIGHT = 2000;
 var DOOR_WIDTH = 750;
-var DOOR_RIGHT_OFFSET = 150;
+var DOOR_RIGHT_OFFSET = 60;
 
 var BLUE = 0x156289;
 var BLUE_DARK = 0x072534;
@@ -33,7 +33,7 @@ function toDegrees(radians) {
 
 function addDoorStep(stairHeight, group) {
   var width = STEP_RADIUS + WALL_GAP;
-  var height = TOP_FLOOR_HEIGHT - stairHeight;
+  var height = Math.max(TOP_FLOOR_HEIGHT - stairHeight, 0);
   var depth = (STEP_RADIUS * 2) + (WALL_GAP * 2);
   var direction = new THREE.Vector3(STEP_RADIUS + WALL_GAP, 0, - (width - DOOR_WIDTH - DOOR_RIGHT_OFFSET));
   direction.normalize();
